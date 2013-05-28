@@ -1,0 +1,62 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %><br />
+    <%= f.text_field :apellido %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <!--  
+  </div>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  <div
+-->
+
+</div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br />
+    <%= f.number_field :telefono %>
+  </div>
+  
+  <!-- <div class="field"> -->
+   
+  <!--   <%= f.label :fecha_registro %><br /> -->
+    <% @year = Time.now.year
+       @month = Time.now.month
+       @day = Time.now.day
+       @current_time =  @year.to_s() + "-" + @month.to_s() +"-" + @day.to_s()
+    %>
+   <%=  f.hidden_field :fecha_registro, :value =>@current_time  %>
+ 
+  <!-- </div>  -->
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

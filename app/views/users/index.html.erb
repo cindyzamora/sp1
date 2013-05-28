@@ -1,0 +1,36 @@
+<h1>Usuarios Creados</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    
+    <th>Apellido</th>
+    <th>User</th>
+    <th>Password</th>
+    <th>Email</th>
+    <th>Telefono</th>
+    <th>Fecha registro</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.nombre %></td>
+    <td><%= user.apellido %></td>
+    <td><%= user.user %></td>
+    <td><%= user.password %></td>
+    <td><%= user.email %></td>
+    <td><%= user.telefono %></td>
+    <td><%= user.fecha_registro %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>
