@@ -7,8 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav class='navbar' >
+		<div class = 'navbar-inner'>
+			<u1 class = 'nav'>
+				<li> <%= link_to 'Inicio', root_path %> </li>
+				<li><%= link_to 'Proyectos', proyectos_path %></li>
+				<li><%= link_to 'Proyectos con fondos', userprojects_path %></li>
+				<% if current_user %>
+					<% if current_user.tipo_usuario == 1 %>
+						<li> <%= link_to 'Nuevo Proyecto', new_proyecto_path %></li>
+						<li> <%= link_to 'Mis Proyectos', {:controller => "proyectos", :action => "misproyectos", :id => current_user.id }%></li>
+						<li> <%= link_to 'Mis Donantes', {:controller => "proyectos", :action => "misdonantes", :id => current_user.id }%></li>
+					<% else%>	<!-- Para los donantes -->
+						<li> <%= link_to 'Mis Proyectos', {:controller => "userprojects", :action => "misproyectos", :id => current_user.id }%></li>
+					<!--	<li><%= link_to 'Ver Proyectos', proyectos_path %></li> -->
+					<% end %>
+					<li><%= link_to "salir #{current_user.username}", logout_path %></li>
+					<li><%= link_to 'Editar Perfil', edit_usuario_path(current_user) %></li>
+				<% else %>
+					<li><%= link_to 'Log in', login_path %></li>
+					<li><%= link_to 'Crear Usuario', new_usuario_path %></li>
+				<% end %>
+			</u1>
+		</div>
+	</nav>
 
 <%= yield %>
-
+	
 </body>
+
 </html>
