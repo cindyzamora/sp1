@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @proyecto.nombre %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @proyecto.descripcion %>
+</p>
+
+<p>
+  <b>Monto total:</b>
+  <%= @proyecto.monto_total %>
+</p>
+
+<p>
+  <b>Monto actual:</b>
+  <%= @proyecto.monto_actual %>
+</p>
+
+<p>
+  <b>Fecha inicio:</b>
+  <%= @proyecto.fecha_inicio %>
+</p>
+
+<p>
+  <b>Fecha limite:</b>
+  <%= @proyecto.fecha_limite %>
+</p>
+
+<p>
+  <b>Fecha cierre:</b>
+  <%= @proyecto.fecha_cierre %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @proyecto.status %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @proyecto.visible %>
+</p>
+
+<p>
+  <b>Id usuario:</b>
+  <%= @proyecto.usuario_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_proyecto_path(@proyecto) %> |
+<%= link_to 'Back', proyectos_path %>

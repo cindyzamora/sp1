@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  descripcion: MyText
+  monto_total: 1.5
+  monto_actual: 1.5
+  fecha_inicio: 2013-05-25 16:53:07
+  fecha_limite: 2013-05-25 16:53:07
+  fecha_cierre: 2013-05-25 16:53:07
+  status: 1
+  visible: 1
+  id_usuario: 1
+
+two:
+  nombre: MyString
+  descripcion: MyText
+  monto_total: 1.5
+  monto_actual: 1.5
+  fecha_inicio: 2013-05-25 16:53:07
+  fecha_limite: 2013-05-25 16:53:07
+  fecha_cierre: 2013-05-25 16:53:07
+  status: 1
+  visible: 1
+  id_usuario: 1

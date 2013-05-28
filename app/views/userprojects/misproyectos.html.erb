@@ -1,0 +1,41 @@
+<h1>Mis proyectos</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+    <th>Monto Total</th>
+    <th>Monto Actual</th>
+    <th>Fecha Inicio</th>
+    <th>Fecha Limite</th>
+    <th>Cantidad</th>
+    <th>Fecha Monto</th>
+    
+    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @userproject.each do |userproject| %>
+  <tr>
+    <%  proy = Proyecto.find(userproject.proyecto_id) %>
+    <td><%= proy.nombre %></td>
+    <td><%= proy.descripcion %></td>
+    <td><%= proy.monto_total %></td>
+    <td><%= proy.monto_actual %></td>
+    <td><%= proy.fecha_inicio %></td>
+    <td><%= proy.fecha_limite %></td>
+    <td><%= userproject.monto %></td>
+    <td><%= userproject.fecha_monto %></td>
+    
+    <!--<td><%= link_to 'Show', userproject %></td>
+    <td><%= link_to 'Edit', edit_userproject_path(userproject) %></td>
+    <td><%= link_to 'Destroy', userproject, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Proyecto', new_userproject_path %>

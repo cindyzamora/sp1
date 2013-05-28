@@ -1,0 +1,29 @@
+<h1>Listing userprojects</h1>
+
+<table>
+  <tr>
+    <th>Usuario</th>
+    <th>Proyecto</th>
+    <th>Monto</th>
+    <th>Fecha monto</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @userprojects.each do |userproject| %>
+  <tr>
+    <td><%= userproject.usuario_id %></td>
+    <td><%= userproject.proyecto_id %></td>
+    <td><%= userproject.monto %></td>
+    <td><%= userproject.fecha_monto %></td>
+    <td><%= link_to 'Show', userproject %></td>
+    <td><%= link_to 'Edit', edit_userproject_path(userproject) %></td>
+    <td><%= link_to 'Destroy', userproject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Userproject', new_userproject_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  usuario_id: 1
+  proyecto_id: 1
+  monto: 1.5
+  fecha_monto: 2013-05-26 15:48:55
+
+two:
+  usuario_id: 1
+  proyecto_id: 1
+  monto: 1.5
+  fecha_monto: 2013-05-26 15:48:55

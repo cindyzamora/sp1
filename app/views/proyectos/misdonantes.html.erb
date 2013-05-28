@@ -1,0 +1,35 @@
+<h1>Mis Donantes</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Proyecto</th>
+    <th>Cantidad</th>
+    <th>Fecha</th>
+   
+    
+    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @proyectos.each do |proyecto| %>
+  
+    <%  proy = Userproject.where("proyecto_id=?",proyecto.id) %>
+    <% proy.each do |userproject| %>
+        <tr>
+        <%  usr = Usuario.find(userproject.usuario_id) %>
+        <td><%= usr.nombre + " "+ usr.apellido%></td>
+        <td><%= proyecto.nombre %></td>
+        <td><%= userproject.monto %></td>
+        <td><%= userproject.fecha_monto %></td>
+    <% end %>
+  
+    
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Proyecto', new_userproject_path %>
