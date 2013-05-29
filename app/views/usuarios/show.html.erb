@@ -17,10 +17,6 @@
   <%= @usuario.username %>
 </p>
 
-<p>
-  <b>Username:</b>
-  <%= @usuario.username %>
-</p>
 
 <p>
   <b>Email:</b>
@@ -30,12 +26,13 @@
   <%= @usuario.fecha_registro %>
 </p>
 <b>Tipo Usuario:</b>
-  <%= @usuario.tipo_usuario %>
+  <% if @usuario.tipo_usuario == 0 %>
+   <%= p 'Donante' %>
+   <% else %>
+     <%= p 'Organizacion ' %>
+  <% end %>   
 </p>
 
 
+<%= link_to 'Edit', edit_usuario_path(@usuario) %> 
 
-
-
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>

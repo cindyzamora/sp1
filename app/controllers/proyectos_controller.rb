@@ -96,7 +96,9 @@ class ProyectosController < ApplicationController
 
   def misdonantes
     @proyectos = Proyecto.where("usuario_id=?",params[:id])
-
+     #@asdfg = Userproject.select("proyecto_id,usuario_id,sum(monto) as monto_t").where("proyecto_id=?",params[:id]).group("usuario_id")
+    #@asdfg = Userproject.select("proyecto_id,usuario_id,sum(monto) as monto_t").group("usuario_id")
+     #@asdfg = Userproject.select("usuario_id,proyecto_id,sum(monto) as monto_t").where("usuario_id=?",params[:id]).group("proyecto_id")
     respond_to do |format|
       format.html # misproyectos.html.erb
       format.json { render json: @proyectos }
