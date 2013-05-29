@@ -22,6 +22,8 @@ end
 
 gem 'jquery-rails'
 gem 'sorcery'
+gem 'activeadmin'
+#gem 'rails_admin'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -37,3 +39,6 @@ gem 'sorcery'
 
 # To use debugger
 # gem 'debugger'
+
+
+gem "devise"
