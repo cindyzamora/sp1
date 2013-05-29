@@ -8,7 +8,7 @@
     <th>Monto actual</th>
     <th>Fecha inicio</th>
     <th>Fecha limite</th>
-   
+    <th>Fecha cierre</th>
     
     
     <th></th>
@@ -18,15 +18,18 @@
 
 <% @proyectos.each do |proyecto| %>
   <tr>
-    <td><%= proyecto.nombre %></td>
-    <td><%= proyecto.descripcion %></td>
-    <td><%= proyecto.monto_total %></td>
-    <td><%= proyecto.monto_actual %></td>
-    <td><%= proyecto.fecha_inicio %></td>
-    <td><%= proyecto.fecha_limite %></td>
-   
+    <% if  proyecto.fecha_limite > DateTime.now and proyecto.status == 1  %>
+        <td><%= proyecto.nombre %></td>
+        <td><%= proyecto.descripcion %></td>
+        <td><%= proyecto.monto_total %></td>
+        <td><%= proyecto.monto_actual %></td>
+        <td><%= proyecto.fecha_inicio %></td>
+        <td><%= proyecto.fecha_limite %></td>
+         <td><%= proyecto.fecha_cierre %></td>
+         <td> <%= link_to 'Donar', {:controller => "userprojects", :action => "new", :proyecto_id => proyecto.id }%></td>
+    <% end %>   
     
-    <td> <%= link_to 'Donar', {:controller => "userprojects", :action => "new", :proyecto_id => proyecto.id }%></td>
+    
 
    
   </tr>

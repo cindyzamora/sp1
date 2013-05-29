@@ -53,6 +53,15 @@ class UserprojectsController < ApplicationController
 
     respond_to do |format|
       if @userproject.save
+        prj = Proyecto.find(@userproject.proyecto_id)
+
+        asco = prj.monto_actual + @userproject.monto
+        Proyecto.update(@userproject.proyecto_id , :monto_actual => asco) ##actualizo monto_Actual
+       # Proyecto.where("id=? AND usuario_id=?",@userproject.proyecto_id,@userproject.usuario_id).update_all(:monto_actual => asco)
+        if Proyecto.find(@userproject.proyecto_id).monto_actual >= Proyecto.find(@userproject.proyecto_id).monto_total
+          Proyecto.update(@userproject.proyecto_id , :status => 0, :fecha_cierre => DateTime.now )  
+        end   
+
         format.html { redirect_to @userproject, notice: 'Userproject was successfully created.' }
         format.json { render json: @userproject, status: :created, location: @userproject }
       else
@@ -92,7 +101,8 @@ class UserprojectsController < ApplicationController
 
   def misproyectos
     @userproject = Userproject.where("usuario_id=?",params[:id])
-    @proyectos = Proyecto.all
+    @asdf = Userproject.select("usuario_id,proyecto_id,sum(monto) as monto_t").where("usuario_id=?",params[:id]).group("proyecto_id")
+   # @prj = Userproject.where("usuario_id=? AND proyecto_id=?",@userproject.usuario_id,@userproject.proyecto_id)
     #Proyecto.where("id=?",@userproject.proyecto_id)
     respond_to do |format|
       format.html # misproyectos.html.erb

@@ -20,7 +20,10 @@
   </div>
   <div class="field">
     <%= f.label :monto %><br />
-    <%= f.text_field :monto %>
+    <%= f.text_field :monto%>
+    <% #asco = f.text_field :monto%>
+    <% #Proyecto.update(params[:proyecto_id] , :monto_actual => asco) %>
+
   </div>
  
   <div class="field">
