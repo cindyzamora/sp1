@@ -5,9 +5,9 @@ class UsuarioSessionsController < ApplicationController
 	def create
 		if @usuario = login(params[:username],params[:password])
 			if @usuario.tipo_usuario == 1
-				redirect_back_or_to(proyectos_path,message: "Login Exitoso")
+				redirect_back_or_to(root_path, message: "Login Exitoso")
 			else
-				redirect_back_or_to(index_proyecto_userprojects_path,message: "Login Exitoso")
+				redirect_back_or_to(root_path, message: "Login Exitoso")
 			end	
 		else
 			flash.now[:alert] = "Algo salio mal con el login"
@@ -16,6 +16,6 @@ class UsuarioSessionsController < ApplicationController
 	end	
 	def destroy
 		logout
-		redirect_to(:usuarios, message: "Logged Out")
+		redirect_to(root_path, message: "Logged Out")
 	end	
 end	

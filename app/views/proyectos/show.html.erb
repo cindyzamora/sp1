@@ -22,7 +22,7 @@
 
 <p>
   <b>Fecha inicio:</b>
-  <%= @proyecto.fecha_inicio %>
+  <%= @proyecto.fecha_inicio.to_date %>
 </p>
 
 <p>
@@ -32,24 +32,23 @@
 
 <p>
   <b>Fecha cierre:</b>
-  <%= @proyecto.fecha_cierre %>
+  <% if @proyecto.fecha_cierre %>
+    @proyecto.fecha_cierre.to_date
+  <% end %>  
+
 </p>
 
 <p>
   <b>Status:</b>
-  <%= @proyecto.status %>
-</p>
-
-<p>
-  <b>Visible:</b>
-  <%= @proyecto.visible %>
-</p>
-
-<p>
-  <b>Id usuario:</b>
-  <%= @proyecto.usuario_id %>
+  <% if @proyecto.status == 1 %>
+    <%= p "Activo" %>
+   <% else %>
+      <%= p "Inactivo" %>
+   <% end %> 
 </p>
 
 
-<%= link_to 'Edit', edit_proyecto_path(@proyecto) %> |
-<%= link_to 'Back', proyectos_path %>
+
+
+<%= link_to 'Edit', edit_proyecto_path(@proyecto) %> 
+
