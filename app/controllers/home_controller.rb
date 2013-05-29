@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  def index
+  def inicio
   	 @proyectos = Proyecto.order("created_at DESC")
   end
 end

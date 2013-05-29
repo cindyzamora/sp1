@@ -28,7 +28,7 @@
     	<td><%= proyecto.fecha_cierre %></td>
     <% end %>
  	<% if current_user %>
- 		<% if current_user.tipo_usuario == 0 %>
+ 		<% if current_user.tipo_usuario == 0 && proyecto.status == 1%>
     		<td> <%= link_to 'Donar', {:controller => "userprojects", :action => "new", :proyecto_id => proyecto.id }%></td>
     	<% end %>	
 

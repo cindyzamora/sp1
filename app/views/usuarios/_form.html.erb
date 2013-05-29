@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :telefono %><br />
-    <%= f.text_field :telefono %>
+    <%= f.number_field :telefono, :min => 1 %>
   </div>
   <div class="field">
     <%= f.label :username %><br />
@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.text_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </div>
 
  
