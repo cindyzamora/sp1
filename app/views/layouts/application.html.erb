@@ -9,8 +9,8 @@
 <body>
 	<nav class='navbar' >
 		<div class = 'navbar-inner'>
-			<u1 class = 'nav'>
-				<li> <%= link_to 'Inicio', root_path %> </li>
+			<u1 class = 'nav nav-tabs'>
+				<li class="active"> <%= link_to 'Inicio', root_path %> </li>
 				
 				<% if current_user %>
 					<% if current_user.tipo_usuario == 1 %>
